@@ -6,7 +6,7 @@ export enum TodoStatus {
 }
 
 @Entity('todos')
-export class TodoModel extends BaseEntity {
+export class TodosModel extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
