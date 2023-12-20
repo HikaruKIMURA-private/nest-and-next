@@ -1,11 +1,11 @@
-import { Controller, Get, Post, Body, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Delete, Param } from '@nestjs/common';
 import { TodosService } from '@/services/todos/todos.service'
 import { TodosModel } from '@/models/todos.model'
 import { InsertResult, UpdateResult, DeleteResult } from 'typeorm'
 import { CreateTodoInput } from '@/dto/create-todo.input'
 import { UpdateTodoInput } from '@/dto/update-todo.input'
 
-@Controller('todos')
+@Controller('todo')
 export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
@@ -21,11 +21,11 @@ export class TodosController {
 
   @Put()
   async updateTodo(@Body() input: UpdateTodoInput): Promise<UpdateResult> {
-    return this.todosService.updateTodo(input):
+    return this.todosService.updateTodo(input)
   }
 
-  @Delete('id')
-  async deleteTodo(@Body('id') id: string): Promise<DeleteResult> {
+  @Delete(':id')
+  async deleteTodo(@Param('id') id: string): Promise<DeleteResult> {
     return this.todosService.deleteTodo(id)
   }
 }

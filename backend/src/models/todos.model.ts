@@ -1,7 +1,7 @@
 import { BaseEntity, Column, CreateDateColumn, UpdateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum TodoStatus {
-  wating = 'wating',
+  wating = 'waiting',
   done = 'done',
 }
 

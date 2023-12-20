@@ -1,16 +1,13 @@
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 
-import { TodosController } from './controllers/todos/todos.controller'
-import { TodosService } from './services/todos/todos.service'
-import { TodosModel } from './models/todos.model'
 import { TodosModule } from './modules/todos/todos.module'
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: '127.0.0.1',
       port: 3306,
       database: 'todoappdb',
       username: 'testuser',
@@ -21,7 +18,7 @@ import { TodosModule } from './modules/todos/todos.module'
     }),
     TodosModule,
   ],
-  controllers: [TodosController],
-  providers: [TodosService]
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
