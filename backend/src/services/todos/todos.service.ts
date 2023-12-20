@@ -27,7 +27,7 @@ export class TodosService {
     return updatedTodos
   }
 
-  async deleteTodo(todoId, string): Promise<DeleteResult> {
+  async deleteTodo(todoId: string): Promise<DeleteResult> {
     const deletedTodos = await this.todosRepository.delete(todoId)
     return deletedTodos
   }
