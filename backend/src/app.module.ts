@@ -7,7 +7,7 @@ import { TodosModule } from './modules/todos/todos.module'
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '127.0.0.1',
+      host: 'localhost',
       port: 3306,
       database: 'todoappdb',
       username: 'testuser',
