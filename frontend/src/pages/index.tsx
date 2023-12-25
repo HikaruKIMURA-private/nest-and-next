@@ -5,10 +5,11 @@ import Title from '../components/Title'
 import TodoInput from '../components/TodoInput'
 import TodoList from '../components/TodoList'
 
+import { useTodos } from '../hooks/useTodos'
+
 const HomePage: NextPage = () => {
-  // return (
-  //   <h3>hello</h3>
-  // )
+  const { todos, setTodos } = useTodos()
+
   return (
     <div className='mx-auto max-w-lg mt-10'>
       <div>
@@ -16,7 +17,7 @@ const HomePage: NextPage = () => {
         <TodoInput />
       </div>
       <div className='mt-10'>
-        <TodoList />
+        <TodoList todos={todos} />
       </div>
     </div>
   )
