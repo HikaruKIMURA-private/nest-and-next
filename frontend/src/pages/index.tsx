@@ -8,16 +8,21 @@ import TodoList from '../components/TodoList'
 import { useTodos } from '../hooks/useTodos'
 
 const HomePage: NextPage = () => {
-  const { todos, setTodos } = useTodos()
+  const { todo, setTodo, todos, todoId, createTodo, updateStatusTodo, updateTitleTodo, deleteTodo } = useTodos()
 
   return (
     <div className='mx-auto max-w-lg mt-10'>
       <div>
         <Title>{UI_DATA.HOME_TITLE}</Title>
-        <TodoInput />
+        <TodoInput todo={todo} setTodo={setTodo} todoId={todoId} onClick={createTodo} />
       </div>
       <div className='mt-10'>
-        <TodoList todos={todos} />
+        <TodoList
+          todos={todos}
+          updateStatusTodo={updateStatusTodo}
+          updateTitleTodo={updateTitleTodo}
+          deleteTodo={deleteTodo}
+        />
       </div>
     </div>
   )

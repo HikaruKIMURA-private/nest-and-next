@@ -1,8 +1,13 @@
 import { TodoModel, TodoStatus } from '../models/todos.model'
 
-type Props = { todos: TodoModel[] }
+type Props = {
+  todos: TodoModel[]
+  updateStatusTodo: Function
+  updateTitleTodo: Function
+  deleteTodo: Function
+}
 
-const TodoList = ({ todos }: Props) => {
+const TodoList = ({ todos, updateStatusTodo, updateTitleTodo, deleteTodo }: Props) => {
   return (
     <>
       {todos?.length > 0 ? (
@@ -13,6 +18,7 @@ const TodoList = ({ todos }: Props) => {
                 type='checkbox'
                 className='h-4 w-4 rounded border-gray-300 text-gray-600 focus:ring-gray-600 cursor-pointer'
                 checked={todo.status == TodoStatus.done ? true : false}
+                onChange={() => updateStatusTodo(todo)}
               />
               <div className='flex min-w-0 flex-1 items-center space-x-3'>
                 <div className='min-w-0 flex-1'>
@@ -31,12 +37,14 @@ const TodoList = ({ todos }: Props) => {
                 <button
                   type='button'
                   className='flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-800 hover:bg-gray-200'
+                  onClick={() => updateTitleTodo(todo)}
                 >
                   編集
                 </button>
                 <button
                   type='button'
                   className='flex items-center rounded bg-red-100 px-2 py-0.5 text-xs font-medium text-red-800 hover:bg-red-200'
+                  onClick={() => deleteTodo(todo)}
                 >
                   削除
                 </button>
