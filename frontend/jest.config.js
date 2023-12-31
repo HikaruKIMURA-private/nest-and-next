@@ -4,4 +4,5 @@ module.exports = {
     '\\.(scss|sass|css)$': 'identity-obj-proxy',
   },
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  testEnvironment: 'jsdom',
 }
