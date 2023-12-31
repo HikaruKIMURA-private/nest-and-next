@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  nestjs-app:
+    build: ./backend
+    ports:
+      - "3000:3000"
+  nextjs-app:
+    build: ./frontend
+    ports:
+      - "3001:3000"
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: todoappdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
