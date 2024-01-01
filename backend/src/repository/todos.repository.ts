@@ -5,6 +5,7 @@ import { InsertResult, UpdateResult, DeleteResult, Repository } from 'typeorm'
 import { CreateTodoInput } from '@/dto/create-todo.input'
 import { UpdateTodoInput } from '@/dto/update-todo.input'
 
+@Injectable()
 export class TodosRepository {
   constructor(
     @InjectRepository(Todo)
