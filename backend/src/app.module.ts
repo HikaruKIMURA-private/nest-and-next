@@ -12,7 +12,7 @@ import { TodosModule } from './modules/todos/todos.module'
       database: 'todoappdb',
       username: 'testuser',
       password: 'password',
-      entities: [__dirname + '/**/*.model{.ts,.js}'],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       logging: true,
     }),

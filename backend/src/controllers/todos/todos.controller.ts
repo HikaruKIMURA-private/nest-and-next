@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Put, Delete, Param } from '@nestjs/common';
 import { TodosService } from '@/services/todos/todos.service'
-import { TodosModel } from '@/models/todos.model'
+import { Todo } from '../../entities/todos.entity'
 import { InsertResult, UpdateResult, DeleteResult } from 'typeorm'
 import { CreateTodoInput } from '@/dto/create-todo.input'
 import { UpdateTodoInput } from '@/dto/update-todo.input'
@@ -10,7 +10,7 @@ export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
   @Get()
-  readAllTodos(): Promise<TodosModel[]> {
+  readAllTodos(): Promise<Todo[]> {
     return this.todosService.readAllTodos()
   }
 
